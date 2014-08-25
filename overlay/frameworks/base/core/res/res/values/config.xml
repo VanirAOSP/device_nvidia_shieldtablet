@@ -183,7 +183,4 @@
     <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">8</integer>
 
-    <!-- Enable flashlight -->
-    <bool name="config_enableTorch">true</bool>
-
 </resources>
