@@ -187,6 +187,9 @@ on boot
     chown system system /sys/class/input/input1/enabled
     chown system system /sys/class/input/input2/enabled
 
+    chown system system /sys/devices/virtual/misc/touch/slowscan_enable
+    chmod 0660 /sys/devices/virtual/misc/touch/slowscan_enable
+
 # nvdps
     chown system system /sys/class/graphics/fb0/device/nvdps
 
