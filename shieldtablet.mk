@@ -30,16 +30,15 @@ DEVICE_PACKAGE_OVERLAYS += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.tn8 \
-    init.tn8.rc \
-    init.tn8.usb.rc \
     init.cal.rc \
     init.hdcp.rc \
-    init.none.rc \
     init.recovery.tn8.rc \
     init.t124.rc \
     init.tegra.rc \
     init.tegra_emmc.rc \
     init.tlk.rc \
+    init.tn8.rc \
+    init.tn8.usb.rc \
     power.tn8.rc \
     ueventd.tn8.rc
 
@@ -76,21 +75,21 @@ PRODUCT_COPY_FILES += \
 
 # keylayout
 PRODUCT_COPY_FILES += \
-  $(LOCAL_PATH)/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
-  $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-  $(LOCAL_PATH)/keylayout/Vendor_0955_Product_7210.kl:system/usr/keylayout/Vendor_0955_Product_7210.kl
+    $(LOCAL_PATH)/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
+    $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    $(LOCAL_PATH)/keylayout/Vendor_0955_Product_7210.kl:system/usr/keylayout/Vendor_0955_Product_7210.kl
 
 # Media config
 PRODUCT_COPY_FILES += \
-   $(LOCAL_PATH)/media/media_codecs.xml:system/etc/media_codecs.xml \
-   $(LOCAL_PATH)/media/media_profiles.xml:system/etc/media_profiles.xml
+    $(LOCAL_PATH)/media/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/media/media_profiles.xml:system/etc/media_profiles.xml
 
 # Audio
 PRODUCT_COPY_FILES += \
-   $(LOCAL_PATH)/audio/audioConfig_qvoice_icera_pc400.xml:system/etc/audioConfig_qvoice_icera_pc400.xml \
-   $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
-   $(LOCAL_PATH)/audio/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
-   $(LOCAL_PATH)/audio/nvaudio_fx.xml:system/etc/nvaudio_fx.xml
+    $(LOCAL_PATH)/audio/audioConfig_qvoice_icera_pc400.xml:system/etc/audioConfig_qvoice_icera_pc400.xml \
+    $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/audio/nvaudio_conf.xml:system/etc/nvaudio_conf.xml \
+    $(LOCAL_PATH)/audio/nvaudio_fx.xml:system/etc/nvaudio_fx.xml
 
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -102,7 +101,7 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_COPY_FILES += \
-   $(LOCAL_PATH)/gps/gpsconfig.xml:system/etc/gps/gpsconfig.xml
+    $(LOCAL_PATH)/gps/gpsconfig.xml:system/etc/gps/gpsconfig.xml
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
@@ -116,13 +115,21 @@ PRODUCT_COPY_FILES += \
 
 # Wifi
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/bcm4329/fw_bcmdhd.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin \
+    $(LOCAL_PATH)/wifi/bcm4329/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
+    $(LOCAL_PATH)/wifi/bcm4330/fw_bcmdhd.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin \
+    $(LOCAL_PATH)/wifi/bcm4330/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
+    $(LOCAL_PATH)/wifi/bcm4335/fw_bcmdhd.bin:system/vendor/firmware/bcm4335/fw_bcmdhd.bin \
     $(LOCAL_PATH)/wifi/bcm43241/fw_bcmdhd.bin:system/vendor/firmware/bcm43241/fw_bcmdhd.bin \
-    $(LOCAL_PATH)/wifi/bcm43241/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm43241/fw_bcmdhd_apsta.bin \
-    $(LOCAL_PATH)/wifi/nvram_43241.txt:system/etc/nvram_43241.txt \
+    $(LOCAL_PATH)/wifi/bcm43341/fw_bcmdhd.bin:system/vendor/firmware/bcm43341/fw_bcmdhd.bin \
+    $(LOCAL_PATH)/wifi/bcm43341/fw_bcmdhd_a0.bin:system/vendor/firmware/bcm43341/fw_bcmdhd_a0.bin \
     $(LOCAL_PATH)/wifi/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
-    $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+    $(LOCAL_PATH)/wifi/nvram_4335.txt:system/etc/nvram_4335.txt \
+    $(LOCAL_PATH)/wifi/nvram_43241.txt:system/etc/nvram_43241.txt \
+    $(LOCAL_PATH)/wifi/nvram_rev2.txt:system/etc/nvram_rev2.txt \
+    $(LOCAL_PATH)/wifi/nvram_rev3.txt:system/etc/nvram_rev3.txt \
+    $(LOCAL_PATH)/wifi/nvram_rev4.txt:system/etc/nvram_rev4.txt \
+    $(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 PRODUCT_PACKAGES += \
     libnetcmdiface
@@ -132,7 +139,7 @@ PRODUCT_PROPERTY_OVERRIDES += drm.service.enabled=true
 
 # Light
 PRODUCT_PACKAGES += \
-    lights.tegra \
+    lights.tegra
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -156,12 +163,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
-
-# Debugging
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.adb.secure=0 \
-    ro.secure=0 \
-    ro.debuggable=1
 
 # Disable SELinux
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -193,4 +194,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     pbc.gpu.power=/sys/bus/i2c/devices/7-004b/power1_input \
     pbc.gpu.cap=/dev/gpu_freq_max \
     pbc.gpu.cap.af=/sys/devices/platform/host1x/gk20a.0/devfreq/gk20a.0/available_frequencies \
-    af.resampler.quality = 4 \
+    af.resampler.quality = 4
