@@ -115,9 +115,20 @@ PRODUCT_COPY_FILES += \
 
 # Wifi
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/bcm4329/fw_bcmdhd.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin \
+    $(LOCAL_PATH)/wifi/bcm4329/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
+    $(LOCAL_PATH)/wifi/bcm4330/fw_bcmdhd.bin:system/vendor/firmware/bcm4330/fw_bcmdhd.bin \
+    $(LOCAL_PATH)/wifi/bcm4330/fw_bcmdhd_apsta.bin:system/vendor/firmware/bcm4330/fw_bcmdhd_apsta.bin \
+    $(LOCAL_PATH)/wifi/bcm4335/fw_bcmdhd.bin:system/vendor/firmware/bcm4335/fw_bcmdhd.bin \
     $(LOCAL_PATH)/wifi/bcm43241/fw_bcmdhd.bin:system/vendor/firmware/bcm43241/fw_bcmdhd.bin \
-    $(LOCAL_PATH)/wifi/nvram_43241.txt:system/etc/nvram_43241.txt \
+    $(LOCAL_PATH)/wifi/bcm43341/fw_bcmdhd.bin:system/vendor/firmware/bcm43341/fw_bcmdhd.bin \
+    $(LOCAL_PATH)/wifi/bcm43341/fw_bcmdhd_a0.bin:system/vendor/firmware/bcm43341/fw_bcmdhd_a0.bin \
     $(LOCAL_PATH)/wifi/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+    $(LOCAL_PATH)/wifi/nvram_4335.txt:system/etc/nvram_4335.txt \
+    $(LOCAL_PATH)/wifi/nvram_43241.txt:system/etc/nvram_43241.txt \
+    $(LOCAL_PATH)/wifi/nvram_rev2.txt:system/etc/nvram_rev2.txt \
+    $(LOCAL_PATH)/wifi/nvram_rev3.txt:system/etc/nvram_rev3.txt \
+    $(LOCAL_PATH)/wifi/nvram_rev4.txt:system/etc/nvram_rev4.txt \
     $(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 PRODUCT_PACKAGES += \
