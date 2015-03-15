@@ -22,6 +22,8 @@ on post-fs-data
     start start-gps
 
 on init
+    mkdir /mnt/factory
+    mount ext4 /dev/block/mmcblk0p19 /mnt/factory wait ro noatime noauto_da_alloc
     setprop sys.esrd.powermon_path /sys/bus/i2c/devices/1-0040/iio_device
     setprop sys.esrd.powermon_channel 0
     setprop sys.esrd.min_esr 95
